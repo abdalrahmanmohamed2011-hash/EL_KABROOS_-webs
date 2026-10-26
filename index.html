@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="EL_KABROOS furniture and interior design collections.">
+<title>EL_KABROOS | Luxury Furniture</title>
+<link rel="icon" href="https://img.icons8.com/ios-filled/100/c5a46d/armchair.png">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #c5a46d;
+  --black: #111;
+  --panel: #191919;
+  --white: #f5f1e9;
+  --muted: #aaa49b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: Montserrat, sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(#111111dc, #111111f0),
+    url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  filter: grayscale(100%);
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+.topbar {
+  height: 76px;
+  position: fixed;
+  z-index: 30;
+  inset: 0 0 auto 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 24px;
+  background: #101010ed;
+  border-bottom: 1px solid #ffffff19;
+  backdrop-filter: blur(15px);
+}
+.menu-btn {
+  color: var(--gold);
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+.brand {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 29px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  animation: brandGlow 2.5s infinite alternate;
+}
+@keyframes brandGlow {
+  from { text-shadow: 0 0 1px #c5a46d; }
+  to { text-shadow: 0 0 22px #c5a46dcc; }
+}
+.top-tagline {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+.side {
+  position: fixed;
+  top: 76px;
+  bottom: 0;
+  left: 0;
+  width: 235px;
+  padding: 22px 12px;
+  overflow-y: auto;
+  z-index: 20;
+  background: #141414f5;
+  border-right: 1px solid #ffffff17;
+  transition: transform .3s;
+}
+.side-label {
+  color: #777168;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin: 23px 12px 12px;
+}
+.side a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  margin-bottom: 5px;
+  border-radius: 7px;
+  color: #c7c1b9;
+  font-size: 11px;
+  transition: .25s;
+}
+.side a:hover, .side a.active {
+  color: var(--gold);
+  background: #c5a46d1c;
+}
+.nav-icon {
+  font-size: 19px;
+  width: 22px;
+  text-align: center;
+}
+main {
+  margin-left: 235px;
+  padding-top: 76px;
+}
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 75px 8%;
+  background:
+    linear-gradient(90deg,#101010f5,#101010ad 60%,#10101066),
+    url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1700&q=85")
+    center/cover;
+  filter: grayscale(100%);
+}
+.hero-content { max-width: 690px; }
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(55px,7vw,96px);
+  line-height: .95;
+  margin: 25px 0;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  color: #d1cbc3;
+  font-size: 12px;
+  line-height: 2.1;
+  max-width: 520px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 23px;
+  color: #171717;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: .25s;
+}
+.btn:hover {
+  color: var(--gold);
+  background: transparent;
+}
+.section {
+  padding: 70px 6%;
+  scroll-margin-top: 85px;
+}
+.section-heading { margin-bottom: 30px; }
+.section-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px,4vw,48px);
+  font-weight: 600;
+  margin: 12px 0;
+}
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2.1;
+  max-width: 780px;
+}
+.gold-line {
+  width: 52px;
+  height: 2px;
+  background: var(--gold);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+  margin-top: 30px;
+}
+.stat {
+  padding: 23px 15px;
+  background: #191919cc;
+  border: 1px solid #ffffff17;
+}
+.stat strong {
+  display: block;
+  color: var(--gold);
+  font: 30px "Cormorant Garamond",serif;
+}
+.stat span { color: var(--muted); font-size: 9px; }
+.products {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 17px;
+}
+.product {
+  min-width: 0;
+  background: #191919;
+  border: 1px solid #ffffff15;
+  overflow: hidden;
+  transition: transform .3s,border-color .3s;
+}
+.product:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+.product-image { overflow: hidden; }
+.product img {
+  display: block;
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  filter: grayscale(65%);
+  transition: .4s;
+}
+.product:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+.product-info { padding: 16px; }
+.product-info span {
+  color: var(--gold);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.product-info h3 {
+  font: 24px "Cormorant Garamond",serif;
+  margin: 10px 0;
+}
+.product-info p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.9;
+  min-height: 58px;
+}
+.product-info a {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.about-grid img {
+  width: 100%;
+  min-height: 280px;
+  max-height: 390px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 14px;
+}
+.feature {
+  padding: 20px;
+  border: 1px solid #ffffff17;
+  background: #191919ad;
+}
+.feature h3 {
+  color: var(--gold);
+  font-size: 12px;
+}
+.feature p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 2;
+}
+.story-block {
+  padding: 23px 0;
+  border-bottom: 1px solid #ffffff15;
+}
+.story-block h3 {
+  font: 27px "Cormorant Garamond",serif;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.story-block p {
+  color: #c2bcb4;
+  font-size: 12px;
+  line-height: 2.2;
+  margin: 8px 0;
+}
+.contact {
+  text-align: center;
+  background: #c5a46d12;
+  border-top: 1px solid #c5a46d40;
+}
+.contact .section-heading p { margin: auto; }
+footer {
+  padding: 32px 6%;
+  border-top: 1px solid #ffffff15;
+  text-align: center;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 2;
+}
+#cursor {
+  position: fixed;
+  z-index: 100;
+  width: 17px;
+  height: 17px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  transition: width .2s,height .2s,background .2s;
+}
+#cursor.big {
+  width: 38px;
+  height: 38px;
+  background: #c5a46d2a;
+}
+@media(pointer:coarse) { #cursor { display:none; } }
+@media(max-width:1000px) {
+  .side { width: 205px; }
+  main { margin-left: 205px; }
+  .products { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:650px) {
+  .topbar { height: 65px; padding: 0 13px; gap: 12px; }
+  .brand { font-size: 22px; letter-spacing: 1px; }
+  .top-tagline { display:none; }
+  .side {
+    top:65px;
+    width:250px;
+    transform:translateX(-105%);
+  }
+  .side.open { transform:translateX(0); }
+  main { margin-left:0; padding-top:65px; }
+  .hero { min-height:510px; padding:55px 7%; }
+  .section { padding:52px 5%; }
+  .products { grid-template-columns:1fr; }
+  .product img { height:250px; }
+  .about-grid { grid-template-columns:1fr; }
+  .stats { grid-template-columns:1fr; }
+  .features { grid-template-columns:1fr; }
+  #cursor { display:none; }
+}
+</style>
+</head>
+
+<body>
+<div id="cursor"></div>
+
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  <a class="brand" href="#home">EL_KABROOS</a>
+  <span class="top-tagline">LUXURY FURNITURE & INTERIORS</span>
+</header>
+
+<nav class="side" id="sidebar">
+  <div class="side-label">DISCOVER</div>
+  <a class="active" href="#home"><span class="nav-icon">⌂</span>Home</a>
+  <a href="#about"><span class="nav-icon">✧</span>About Us</a>
+  <div class="side-label">OUR COLLECTIONS</div>
+  <a href="#sofas"><span class="nav-icon">▰</span>Sofas & Lounges</a>
+  <a href="#carpets"><span class="nav-icon">▦</span>Carpets & Rugs</a>
+  <a href="#dining"><span class="nav-icon">♧</span>Dining Rooms</a>
+  <a href="#decor"><span class="nav-icon">✳</span>Home Decor</a>
+  <a href="#offices"><span class="nav-icon">▤</span>Office Furniture</a>
+  <a href="#office-decor"><span class="nav-icon">◇</span>Office Decor</a>
+  <div class="side-label">CONTACT</div>
+  <a href="#contact"><span class="nav-icon">✉</span>Contact Us</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">CRAFTED FOR THE WAY YOU LIVE</div>
+    <h1>Design Your<br><span>World.</span></h1>
+    <p>
+      Welcome to EL_KABROOS, where timeless elegance meets everyday comfort.
+      Furniture is more than an object. It is part of every memory, every
+      gathering, and every beautiful moment at home. Explore furniture ideas
+      that combine sophisticated design, practical functionality, and
+      a welcoming atmosphere for modern living.
+    </p>
+    <a class="btn" href="#collections">EXPLORE OUR COLLECTIONS ↗</a>
+  </div>
+</section>
+
+<!-- HOMEPAGE CONTENT -->
+<section class="section" id="home-story">
+  <div class="section-heading">
+    <div class="eyebrow">WELCOME TO EL_KABROOS</div>
+    <h2>Furniture That Makes a House Feel Like Home</h2>
+    <div class="gold-line"></div>
+    <p>
+      EL_KABROOS celebrates the relationship between beautiful furniture
+      and everyday life. A home should feel personal, comfortable, balanced,
+      and full of character. Our design concept brings together living room
+      furniture, dining collections, decorative accessories, carpets,
+      and office furnishings in one inspiring destination.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Luxury contemporary living room">
+    <div>
+      <div class="eyebrow">OUR PHILOSOPHY</div>
+      <h2 style="font:38px 'Cormorant Garamond',serif">Beauty in Every Detail</h2>
+      <p style="color:#c2bcb4;font-size:12px;line-height:2.2">
+        Good design begins with understanding how people use their spaces.
+        The right furniture can make a room feel more welcoming, organised,
+        and suited to its purpose. Proportion, colour, texture, and light
+        all contribute to a successful interior.
+      </p>
+      <p style="color:#c2bcb4;font-size:12px;line-height:2.2">
+        Our collections are presented to help visitors discover styles,
+        compare ideas, and imagine new possibilities for their surroundings.
+        From understated contemporary designs to expressive classic pieces,
+        there are many ways to develop a distinctive personal atmosphere.
+      </p>
+    </div>
+  </div>
+
+  <div class="section-heading" style="margin-top:65px">
+    <div class="eyebrow">FEATURED INSPIRATION</div>
+    <h2>Discover Our Furniture World</h2>
+    <p>
+      Every room has its own purpose and personality. Explore furniture
+      inspiration for relaxing, dining, entertaining, working, and enjoying
+      the little details that make an interior feel complete.
+    </p>
+  </div>
+
+  <div class="products">
+    <article class="product">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=85" alt="Contemporary sofa"></div>
+      <div class="product-info">
+        <span>COMFORT & STYLE</span>
+        <h3>Elegant Sofas</h3>
+        <p>Explore inviting seating designs, elegant silhouettes, and upholstery ideas for a living room that feels comfortable and personal.</p>
+        <a href="#sofas">EXPLORE SOFAS ↗</a>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=700&q=85" alt="Decorative carpet"></div>
+      <div class="product-info">
+        <span>TEXTURE & CHARACTER</span>
+        <h3>Beautiful Carpets</h3>
+        <p>Patterns, textures, and balanced colours help rugs define spaces and add warmth to carefully designed rooms.</p>
+        <a href="#carpets">EXPLORE CARPETS ↗</a>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-image"><img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=700&q=85" alt="Dining room furniture"></div>
+      <div class="product-info">
+        <span>TOGETHERNESS & ELEGANCE</span>
+        <h3>Dining Collections</h3>
+        <p>Discover table and chair styles that make everyday meals and special gatherings feel welcoming and memorable.</p>
+        <a href="#dining">EXPLORE DINING ↗</a>
+      </div>
+    </article>
+  </div>
+
+  <div id="homeArticles"></div>
+</section>
+
+<section class="section" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow">THE EL_KABROOS STORY</div>
+      <div class="section-heading">
+        <h2>A Better Way to Live</h2>
+        <div class="gold-line"></div>
+      </div>
+      <p style="color:#c2bcb4;font-size:12px;line-height:2.2">
+        EL_KABROOS is built around the idea that furniture should support
+        the way people live. Our design vision combines appearance,
+        comfort, useful details, and the atmosphere of a well-planned room.
+      </p>
+      <p style="color:#c2bcb4;font-size:12px;line-height:2.2">
+        We aim to present a clear and enjoyable browsing experience,
+        allowing visitors to discover different categories and find
+        inspiration for their own homes and workspaces.
+      </p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Elegant interior design">
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>01</strong><span>DESIGN WITH PURPOSE</span></div>
+    <div class="stat"><strong>02</strong><span>QUALITY MINDED</span></div>
+    <div class="stat"><strong>03</strong><span>MADE FOR LIVING</span></div>
+  </div>
+</section>
+
+<div id="collections"></div>
+<div id="productSections"></div>
+
+<section class="section">
+  <div class="section-heading">
+    <div class="eyebrow">OUR DESIGN APPROACH</div>
+    <h2>Designed Around You</h2>
+    <p>
+      A beautiful space is a personal story. Furniture, materials,
+      decorative details, and lighting work together to create a
+      distinctive environment. Explore possibilities and discover
+      combinations that suit your needs and preferred style.
+    </p>
+  </div>
+  <div class="features">
+    <div class="feature"><h3>Thoughtful Design</h3><p>Explore different styles and forms that balance appearance and everyday functionality.</p></div>
+    <div class="feature"><h3>Comfortable Living</h3><p>Consider seating, circulation, room proportions, and practical arrangements.</p></div>
+    <div class="feature"><h3>Interior Harmony</h3><p>Coordinate textures, finishes, furniture, and accessories for a consistent atmosphere.</p></div>
+    <div class="feature"><h3>Personal Expression</h3><p>Find inspiration to make your home or workspace feel distinctive and welcoming.</p></div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="eyebrow">LET'S CREATE SOMETHING BEAUTIFUL</div>
+  <div class="section-heading">
+    <h2>Your Space. Your Story.</h2>
+    <p>Discover furniture inspiration and imagine a new look for your home or workplace.</p>
+  </div>
+  <a class="btn" href="#home">BACK TO TOP ↑</a>
+</section>
+
+<footer>
+  <div class="brand" style="font-size:23px;margin-bottom:12px">EL_KABROOS</div>
+  LUXURY FURNITURE & INTERIORS<br>
+  © <span id="year"></span> EL_KABROOS. All rights reserved.<br>
+  <p>Concept website. Company credentials and product specifications must be verified before publication.</p>
+</footer>
+</main>
+
+<script>
+const homepageArticles = [
+  ["A Living Room Made for Living",
+   "The living room often becomes the heart of a home. It is where families relax, friends gather, and everyday conversations unfold. Furniture selection should consider comfort, room dimensions, walking space, and the activities that take place in the room.",
+   "A thoughtfully arranged sofa can establish the room's central seating area. Accent chairs can provide additional places to sit, while side tables offer convenient surfaces for books, drinks, and decorative objects. A balanced layout makes the room feel welcoming without overcrowding it."],
+  ["Choosing the Right Sofa",
+   "Sofas come in many silhouettes, sizes, upholstery styles, and colours. A compact two-seater may suit an apartment, while a larger sectional can provide seating for a family. Curved forms can create a sculptural look, and classic straight lines often complement minimalist interiors.",
+   "Before choosing a sofa, consider the available space, doorways, preferred seating depth, and the amount of maintenance required. Upholstery options may include fabric, velvet, leather, or leather-style materials. Actual composition and care instructions should always be checked against the specific product."],
+  ["The Beauty of Carpets and Rugs",
+   "Carpets can add texture, warmth, and visual interest. They may help define a seating area, complement the colours of nearby furniture, or introduce a decorative pattern into a relatively simple room.",
+   "When selecting a rug, consider its dimensions, material, pile height, pattern, and cleaning requirements. A rug that is proportionate to the furniture can help connect the different elements of the room. Neutral designs can feel understated, while patterned rugs may become a focal point."],
+  ["Creating an Elegant Dining Room",
+   "Dining rooms bring people together for everyday meals, family celebrations, and conversations with guests. The table establishes the centre of the space, while chairs, lighting, and storage help create a complete arrangement.",
+   "Round tables can encourage conversation, while rectangular tables can suit longer rooms. Chair height, legroom, circulation space, and the number of people who regularly use the dining area should all be considered before selecting a set."],
+  ["Home Decor and Personal Style",
+   "Decorative accessories allow people to express their personality without replacing all the furniture in a room. Mirrors, artwork, vases, cushions, lamps, and ornaments can introduce colour, texture, and visual contrast.",
+   "The most successful arrangements often combine a few carefully selected pieces rather than filling every surface. Repeating a colour or material in different parts of a room can help create a connected appearance while leaving enough space for each detail to stand out."],
+  ["Designing a Productive Office",
+   "An office should support its purpose while remaining comfortable and organised. A suitable desk, supportive seating, accessible storage, and appropriate lighting can help establish a practical work environment.",
+   "The amount of available space and the equipment being used will influence furniture selection. Meeting rooms may need shared tables, while individual work areas may benefit from compact desks and organised storage. Measurements should be checked before purchasing furniture."],
+  ["Materials, Finishes, and Craftsmanship",
+   "Materials influence the appearance, feel, maintenance, and durability of furniture. Wood, metal, glass, fabric, leather, and engineered materials each offer different visual qualities and practical considerations.",
+   "Finishes can make a piece look warm, contemporary, classic, or industrial. Details such as seams, edges, joins, hardware, and surface treatments may affect the overall impression. Product descriptions should accurately state the materials used instead of relying on appearance alone."],
+  ["Colour and Interior Harmony",
+   "Colour can influence how a room feels. Soft neutral shades may create a calm backdrop, while darker colours can add depth and contrast. Accent colours can bring energy to a space when used thoughtfully.",
+   "Furniture does not need to match in every detail to work together. Repeating a few related colours, balancing different textures, and varying shapes can create a more interesting interior. Natural and artificial lighting may also change how colours appear throughout the day."],
+  ["Small Spaces, Smart Solutions",
+   "Smaller rooms benefit from careful planning. Compact seating, multi-purpose furniture, vertical storage, and well-considered circulation paths can help make limited space feel more useful.",
+   "Furniture dimensions should be measured before making a decision. Leaving enough room to move comfortably is just as important as choosing a visually attractive piece. Light finishes and a restrained selection of accessories can also help a room feel less crowded."],
+  ["A Welcoming First Impression",
+   "An entrance introduces the style of a home or workplace. A console table, mirror, practical storage, and appropriate lighting can help create an organised and welcoming first impression.",
+   "The best arrangement depends on the available space and how people move through it. Decorative objects should not obstruct access, and storage should be convenient for everyday items. Even a small entrance can benefit from a clear, coordinated design."],
+  ["Lighting as Part of the Design",
+   "Lighting supports both the practical use and the atmosphere of a room. General lighting provides overall visibility, task lighting supports specific activities, and accent lighting highlights selected features.",
+   "Table lamps, floor lamps, pendants, and wall lights can complement furniture in different ways. The appropriate placement and brightness depend on the purpose of the room. Lighting products should be selected with suitable electrical specifications and safe installation in mind."],
+  ["Furniture for Everyday Family Life",
+   "Family spaces need to balance appearance with the routines of the people who use them. Seating, tables, storage, and durable finishes can all contribute to a more functional home.",
+   "The needs of a household may change over time. Flexible arrangements and practical storage can make it easier to adapt a room for guests, activities, or changing preferences. Maintenance instructions should be considered when selecting upholstery and surfaces."],
+  ["Classic Design and Modern Living",
+   "Classic and contemporary design can work together when their proportions, colours, and materials are carefully balanced. A traditional table may pair well with simple chairs, while a modern sofa can be complemented by a heritage-inspired rug.",
+   "Combining styles is an opportunity to create a personal interior rather than follow a single trend. Repeating selected details can connect different pieces and make the overall arrangement feel intentional."],
+  ["Choosing Furniture for Bedrooms",
+   "A bedroom should feel restful and support daily routines. The bed, bedside tables, wardrobes, lighting, and textiles all contribute to the atmosphere and functionality of the space.",
+   "Storage needs, circulation space, bed dimensions, and access to cupboards should be considered when planning the room. Calm colours and coordinated textures can create a comfortable setting without requiring excessive decoration."],
+  ["Storage That Complements Your Interior",
+   "Storage furniture helps keep rooms organised while contributing to their appearance. Cabinets, shelves, sideboards, and wardrobes can provide useful space for belongings and reduce visual clutter.",
+   "The best storage solution depends on what needs to be stored and how often it is accessed. Dimensions, weight capacity, fixing requirements, and the available floor or wall space should be checked for each specific item."],
+  ["Creating a Comfortable Reading Corner",
+   "A reading corner can transform an unused part of a room into a personal retreat. A comfortable chair, a suitable light, a small table, and a nearby shelf may be enough to create a practical and inviting setting.",
+   "The arrangement should allow comfortable movement and provide light appropriate for reading. Cushions and a small rug can add texture, while keeping the surrounding area uncluttered can help the corner feel peaceful."],
+  ["Decorative Details for Professional Spaces",
+   "Office decoration can help communicate a company's style while keeping the workspace functional. Artwork, plants, clocks, desk accessories, and carefully chosen lighting can contribute to a professional atmosphere.",
+   "Decorative objects should support rather than interfere with work. Clear surfaces, suitable lighting, accessible equipment, and consistent visual choices can help create a more cohesive environment for staff and visitors."],
+  ["Planning a Cohesive Interior",
+   "A cohesive interior does not require every item to look identical. Instead, it relies on relationships between colours, materials, shapes, and proportions. Repeating a few visual elements can connect rooms and make the overall design feel intentional.",
+   "Planning a room before purchasing furniture can help avoid incompatible sizes and unnecessary expense. A simple list of requirements, measurements, preferred colours, and practical priorities can provide a useful starting point."],
+  ["Shopping with Confidence",
+   "Choosing furniture is easier when the important product information is available. Measurements, materials, finishes, maintenance instructions, delivery conditions, and return policies can all affect a purchase decision.",
+   "Customers should confirm product details with the seller before ordering. Photographs are useful for inspiration, but they cannot guarantee exact colour, texture, construction, or dimensions. Clear and accurate information helps establish realistic expectations."],
+  ["Our Vision for Beautiful Spaces",
+   "The EL_KABROOS concept brings together furniture inspiration for homes and offices in one browsing experience. Its visual identity combines dark backgrounds, warm gold accents, monochrome imagery, and elegant typography.",
+   "Our aim is to make it easy to explore different categories, discover design ideas, and imagine combinations that reflect personal preferences. The collection descriptions on this demonstration website are illustrative and should be replaced with verified details for real products."]
+];
+
+const articleContainer = document.getElementById("homeArticles");
+
+homepageArticles.forEach((article, index) => {
+  const block = document.createElement("article");
+  block.className = "story-block";
+  block.innerHTML = `
+    <h3>${String(index + 1).padStart(2,"0")} — ${article[0]}</h3>
+    <p>${article[1]}</p>
+    <p>${article[2]}</p>
+  `;
+  articleContainer.appendChild(block);
+});
+
+const categories = [
+  {
+    id:"sofas", title:"Sofas & Lounges", eyebrow:"COMFORT MEETS CHARACTER",
+    intro:"Discover seating ideas for relaxing, entertaining, and everyday living.",
+    names:["Modern Leather Sofa","Classic Lounge Sofa","Contemporary Sectional","Luxury Velvet Sofa","Minimalist Two-Seater","Curved Statement Sofa","Chaise Lounge","Accent Armchair","Family Corner Sofa"],
+    descriptions:[
+      "An elegant silhouette with leather-style upholstery. Check the actual material specifications before purchasing.",
+      "A timeless seating style with balanced proportions and a welcoming appearance.",
+      "A versatile sectional concept for spacious living rooms and family gatherings.",
+      "Velvet-style upholstery brings texture and a refined decorative accent.",
+      "Compact proportions and clean lines for apartments and smaller spaces.",
+      "A sculptural profile designed to create a distinctive focal point.",
+      "An extended seat concept for reading, relaxing, and quiet moments.",
+      "A characterful companion piece for a coordinated seating arrangement.",
+      "A spacious corner-style arrangement for conversation and everyday living."
+    ],
+    images:["photo-1555041469-a586c61ea9bc","photo-1550254478-ead40cc54513","photo-1550581190-9c1c48d21d6c","photo-1540574163026-643ea20ade25","photo-1567538096630-e0c55bd6374c","photo-1555041469-a586c61ea9bc","photo-1567538096630-e0c55bd6374c","photo-1550254478-ead40cc54513","photo-1540574163026-643ea20ade25"]
+  },
+  {
+    id:"carpets", title:"Carpets & Rugs", eyebrow:"TEXTURE UNDERFOOT",
+    intro:"Bring warmth, pattern, and visual definition to your interior.",
+    names:["Classic Pattern Rug","Modern Neutral Rug","Geometric Area Rug","Persian-Inspired Carpet","Textured Living Room Rug","Minimalist Bedroom Rug","Decorative Runner","Luxury Accent Rug","Contemporary Statement Rug"],
+    descriptions:[
+      "Decorative motifs create a timeless focal point for a room.",
+      "Neutral tones complement wood, stone, and contemporary furniture.",
+      "Structured shapes introduce a modern decorative accent.",
+      "Heritage-inspired patterns add depth and visual character.",
+      "A textured look can help make a seating area feel inviting.",
+      "A calm design concept for a restful bedroom interior.",
+      "A decorative runner concept for entrances and hallways.",
+      "An accent piece for a reading corner or seating arrangement.",
+      "Expressive patterns can create a focal point in a carefully styled room."
+    ],
+    images:["photo-1600166898405-da9535204843","photo-1600210492486-724fe5c67fb0","photo-1600607687939-ce8a6c25118c","photo-1600566753086-00f18fb6b3ea","photo-1600607687920-4e2a09cf159d","photo-1616486338812-3dadae4b4ace","photo-1600210492486-724fe5c67fb0","photo-1600566753190-17f0baa2a6c3","photo-1600607687939-ce8a6c25118c"]
+  },
+  {
+    id:"dining", title:"Dining Rooms", eyebrow:"GATHER IN STYLE",
+    intro:"Create a welcoming setting for family meals, celebrations, and conversations.",
+    names:["Modern Dining Table","Elegant Dining Chairs","Six-Seater Dining Set","Round Dining Table","Classic Wooden Dining","Luxury Dining Chair","Contemporary Sideboard","Statement Dining Set","Compact Dining Set"],
+    descriptions:[
+      "A clean-lined table concept for everyday gatherings.",
+      "Considered proportions and upholstered styling for a comfortable setting.",
+      "A coordinated dining concept for family meals and hosting guests.",
+      "A rounded profile that encourages conversation.",
+      "Wood-inspired finishes bring warmth and timeless character.",
+      "An expressive chair design to complement a dining table.",
+      "A storage concept for tableware and dining-room essentials.",
+      "A bold combination of shapes and finishes for a distinctive dining area.",
+      "Space-conscious styling for apartments and smaller dining corners."
+    ],
+    images:["photo-1617806118233-18e1de247200","photo-1600607687939-ce8a6c25118c","photo-1616486338812-3dadae4b4ace","photo-1600566753190-17f0baa2a6c3","photo-1600607687920-4e2a09cf159d","photo-1615874694520-474822394e73","photo-1600210492486-724fe5c67fb0","photo-1600566753086-00f18fb6b3ea","photo-1600607687939-ce8a6c25118c"]
+  },
+  {
+    id:"decor", title:"Home Decor", eyebrow:"THE ART OF DETAILS",
+    intro:"Explore decorative accents that help express your personal style.",
+    names:["Decorative Vase","Statement Mirror","Modern Table Lamp","Decorative Wall Art","Coffee Table Decor","Elegant Floor Lamp","Sculptural Ornament","Decorative Cushions","Interior Accessories"],
+    descriptions:[
+      "A sculptural accent for shelves, consoles, and table arrangements.",
+      "A reflective feature that adds visual interest to a room.",
+      "A lighting concept for a comfortable and intimate atmosphere.",
+      "Artwork-inspired accents introduce colour and personality.",
+      "A curated arrangement for a polished living-room focal point.",
+      "A lighting accent for reading corners and seating areas.",
+      "A distinctive object for consoles, shelves, and side tables.",
+      "Mixing textures and tones can refresh sofas and lounge chairs.",
+      "Coordinated accents help connect different finishes throughout a room."
+    ],
+    images:["photo-1600210492486-724fe5c67fb0","photo-1600607687939-ce8a6c25118c","photo-1616486338812-3dadae4b4ace","photo-1600566753190-17f0baa2a6c3","photo-1600607687920-4e2a09cf159d","photo-1615874694520-474822394e73","photo-1600566753086-00f18fb6b3ea","photo-1600607687939-ce8a6c25118c","photo-1600210492486-724fe5c67fb0"]
+  },
+  {
+    id:"offices", title:"Office Furniture", eyebrow:"WORK BETTER EVERY DAY",
+    intro:"Explore furniture concepts for focused work and professional spaces.",
+    names:["Executive Desk","Ergonomic Office Chair","Modern Workstation","Conference Table","Office Storage Cabinet","Reception Desk","Compact Study Desk","Manager Office Set","Collaborative Table"],
+    descriptions:[
+      "A professional desk concept with a clean silhouette.",
+      "A supportive chair concept for everyday work. Check actual ergonomic specifications.",
+      "A practical setup for equipment and organised work essentials.",
+      "A meeting-room centrepiece for collaboration and discussion.",
+      "A storage concept for documents and work essentials.",
+      "A welcoming first impression for professional environments.",
+      "A streamlined desk concept for home offices and smaller work areas.",
+      "Coordinated desk and seating ideas for a polished office.",
+      "A flexible shared surface for team discussions and creative work."
+    ],
+    images:["photo-1497366754035-f200968a6e72","photo-1497366811353-6870744d04b2","photo-1497366216548-37526070297c","photo-1497366858526-0766cadbe8fa","photo-1497366754035-f200968a6e72","photo-1497366811353-6870744d04b2","photo-1497366216548-37526070297c","photo-1497366858526-0766cadbe8fa","photo-1497366754035-f200968a6e72"]
+  },
+  {
+    id:"office-decor", title:"Office Decor", eyebrow:"INSPIRE YOUR WORKSPACE",
+    intro:"Add character to professional spaces with thoughtful decorative details.",
+    names:["Minimal Desk Lamp","Decorative Planter","Wall Art Collection","Desk Organiser","Modern Wall Clock","Bookshelf Styling","Reception Accessories","Accent Side Table","Workspace Lighting"],
+    descriptions:[
+      "A simple task-lighting concept for a contemporary workspace.",
+      "A natural accent that introduces visual softness.",
+      "Artwork ideas for meeting rooms, studios, and reception spaces.",
+      "A practical accessory concept for organising work essentials.",
+      "A functional decorative accent for shared workspaces.",
+      "A considered display of books and objects for a professional interior.",
+      "Finishing details for a cohesive reception area.",
+      "A useful surface for lounges and informal meeting spaces.",
+      "Layered lighting ideas to complement a productive interior."
+    ],
+    images:["photo-1497366754035-f200968a6e72","photo-1497366811353-6870744d04b2","photo-1497366216548-37526070297c","photo-1497366858526-0766cadbe8fa","photo-1497366754035-f200968a6e72","photo-1497366811353-6870744d04b2","photo-1497366216548-37526070297c","photo-1497366858526-0766cadbe8fa","photo-1497366754035-f200968a6e72"]
+  }
+];
+
+const productSections = document.getElementById("productSections");
+
+categories.forEach(category => {
+  const section = document.createElement("section");
+  section.className = "section";
+  section.id = category.id;
+  section.innerHTML = `
+    <div class="section-heading">
+      <div class="eyebrow">${category.eyebrow}</div>
+      <h2>${category.title}</h2>
+      <div class="gold-line"></div>
+      <p>${category.intro}</p>
+    </div>
+    <div class="products">
+      ${category.names.map((name,index) => `
+        <article class="product">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/${category.images[index]}?auto=format&fit=crop&w=700&q=80" alt="${name}" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span>EL_KABROOS COLLECTION</span>
+            <h3>${name}</h3>
+            <p>${category.descriptions[index]}</p>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+  productSections.appendChild(section);
+});
+
+const cursor = document.getElementById("cursor");
+document.addEventListener("mousemove", event => {
+  cursor.style.left = event.clientX + "px";
+  cursor.style.top = event.clientY + "px";
+});
+document.querySelectorAll("a,button,.product").forEach(item => {
+  item.addEventListener("mouseenter", () => cursor.classList.add("big"));
+  item.addEventListener("mouseleave", () => cursor.classList.remove("big"));
+});
+document.getElementById("menuBtn").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.toggle("open");
+});
+document.querySelectorAll(".side a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.querySelectorAll(".side a").forEach(a => a.classList.remove("active"));
+    link.classList.add("active");
+    document.getElementById("sidebar").classList.remove("open");
+  });
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
